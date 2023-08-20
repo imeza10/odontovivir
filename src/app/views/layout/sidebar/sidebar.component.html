@@ -3,7 +3,7 @@
 
     <!--- Logo -->
     <a routerLink="/" class="sidebar-brand nobleui-logo">
-      Noble<span>UI</span>
+      SG<span>CE</span>
     </a>
 
     <!-- <a routerLink="/" class="sidebar-brand nobleui-logo">
@@ -87,32 +87,22 @@
     <a href="" class="settings-sidebar-toggler" (click)="toggleSettingsSidebar($event)">
       <i class="icon feather icon-settings"></i>
     </a>
-    <h6 class="text-muted mb-2">Sidebar:</h6>
-    <div class="mb-3 pb-3 border-bottom">
-      <div class="form-check form-check-inline">
-        <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="sidebarThemeSettings" (change)="onSidebarThemeChange($event)" id="sidebarLight" value="sidebar-light" checked>
-          <i class="input-frame"></i>
-          Light
-        </label>
-      </div>
-      <div class="form-check form-check-inline">
-        <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="sidebarThemeSettings" (change)="onSidebarThemeChange($event)" id="sidebarDark" value="sidebar-dark">
-          <i class="input-frame"></i>
-          Dark
-        </label>
-      </div>
+    <h6 class="text-muted mb-2">Menu:</h6>
+    
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="sidebarThemeSettings" (change)="onSidebarThemeChange($event)" id="sidebarLight" value="sidebar-light" checked>
+        <i class="input-frame"></i>
+        Claro
+      </label>
     </div>
-    <div class="theme-wrapper">
-      <h6 class="text-muted mb-2">Light Theme:</h6>
-      <a class="theme-item active" href="https://www.nobleui.com/angular/template/demo1/">
-        <img src="assets/images/screenshots/light.jpg" alt="light theme">
-      </a>
-      <h6 class="text-muted mb-2">Dark Theme:</h6>
-      <a class="theme-item" href="https://www.nobleui.com/angular/template/demo2/">
-        <img src="assets/images/screenshots/dark.jpg" alt="dark theme">
-      </a>
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="sidebarThemeSettings" (change)="onSidebarThemeChange($event)" id="sidebarDark" value="sidebar-dark">
+        <i class="input-frame"></i>
+        Oscuro
+      </label>
     </div>
+    
   </div>
 </nav>
