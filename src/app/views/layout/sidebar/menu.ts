@@ -2,48 +2,66 @@ import { MenuItem } from './menu.model';
 
 export const MENU: MenuItem[] = [
   {
-    label: 'Main',
+    label: 'Menu',
     isTitle: true
   },
   {
-    label: 'Dashboard',
+    label: 'Inicio',
     icon: 'home',
     link: '/dashboard'
   },
   {
-    label: 'Web Apps',
+    label: 'Opciones',
     isTitle: true
   },
   {
-    label: 'Email',
-    icon: 'mail',
+    label: 'Gestión Personas',
+    icon: 'users',
     subItems: [
       {
-        label: 'Inbox',
+        label: 'Votantes',
         link: '/apps/email/inbox',
       },
       {
-        label: 'Read',
+        label: 'Coordinadores',
         link: '/apps/email/read'
       },
       {
-        label: 'Compose',
+        label: 'Lideres',
+        link: '/apps/email/compose'
+      },
+      {
+        label: 'Guías',
+        link: '/apps/email/compose'
+      },
+      {
+        label: 'Transportes',
         link: '/apps/email/compose'
       },
     ]
   },
   {
-    label: 'Chat',
+    label: 'Envío Mensajes',
     icon: 'message-square',
     link: '/apps/chat',
   },
   {
-    label: 'Calendar',
+    label: 'Reportes',
+    icon: 'pie-chart',
+    link: '/apps/chat',
+  },
+  {
+    label: 'Confirmación',
+    icon: 'check',
+    link: '/apps/chat',
+  },
+  {
+    label: 'Calendario',
     icon: 'calendar',
     link: '/apps/calendar',
     badge: {
       variant: 'primary',
-      text: 'Event',
+      text: 'Eventos',
     }
   },
   {
