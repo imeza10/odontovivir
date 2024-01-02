@@ -19,6 +19,8 @@ import { EmailComponent } from './email/email.component';
 import { InboxComponent } from './email/inbox/inbox.component';
 import { ReadComponent } from './email/read/read.component';
 import { ComposeComponent } from './email/compose/compose.component';
+import { TakePicComponent } from './license/picture/take-pic.component';
+import { LicenseComponent } from './license/license.component';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -79,12 +81,35 @@ const routes: Routes = [
         path: 'calendar',
         component: CalendarComponent
       },
+      {
+        path: 'license',
+        component: LicenseComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'license',
+            pathMatch: 'full'
+          },
+          {
+            path: 'take-pic',
+            component: TakePicComponent
+          },
+          {
+            path: 'read',
+            component: ReadComponent
+          },
+          {
+            path: 'compose',
+            component: ComposeComponent
+          }
+        ]
+      },
     ]
   }
 ]
 
 @NgModule({
-  declarations: [EmailComponent, ChatComponent, CalendarComponent, AppsComponent, InboxComponent, ReadComponent, ComposeComponent],
+  declarations: [EmailComponent, ChatComponent, CalendarComponent, AppsComponent, InboxComponent, ReadComponent, ComposeComponent, TakePicComponent, LicenseComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

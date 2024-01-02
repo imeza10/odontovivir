@@ -52,6 +52,10 @@ const routes: Routes = [
         path: 'general',
         loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
       },
+      {
+        path: 'votantes',
+        loadChildren: () => import('./views/pages/votantes/votantes.module').then(m => m.VotantesModule)
+      },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, 
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]

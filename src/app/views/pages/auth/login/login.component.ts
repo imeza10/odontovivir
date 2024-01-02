@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,6 +9,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   returnUrl: any;
+  @ViewChild('documentNumber')
+  public documentNumber!:ElementRef<HTMLInputElement>;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -23,6 +25,17 @@ export class LoginComponent implements OnInit {
     if (localStorage.getItem('isLoggedin')) {
       this.router.navigate([this.returnUrl]);
     }
+  }
+
+
+  validateLenght(e:Event){
+
+    
+    if(this.documentNumber.nativeElement.value.length >= 11){
+      e.preventDefault;
+      this.documentNumber.nativeElement.value = this.documentNumber.nativeElement.value.substring(0,10);
+    }
+    
   }
 
 }

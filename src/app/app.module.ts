@@ -11,11 +11,13 @@ import { AppComponent } from './app.component';
 import { ErrorPageComponent } from './views/pages/error-page/error-page.component';
 
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { VotantesComponent } from './views/pages/votantes/votantes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ErrorPageComponent,
+    VotantesComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,27 +15,37 @@ export const MENU: MenuItem[] = [
     isTitle: true
   },
   {
-    label: 'Gestión Personas',
+    label: 'Carnetización',
     icon: 'users',
     subItems: [
       {
-        label: 'Votantes',
-        link: '/apps/email/inbox',
+        label: 'Tomar foto',
+        link: '/apps/license',
       },
       {
-        label: 'Coordinadores',
+        label: 'Crear Jornadas',
         link: '/apps/email/read'
       },
       {
-        label: 'Lideres',
+        label: 'Crear carpetas',
         link: '/apps/email/compose'
       },
+    ]
+  },
+  {
+    label: 'Servicios Informaticos',
+    icon: 'users',
+    subItems: [
       {
-        label: 'Guías',
-        link: '/apps/email/compose'
+        label: 'Registrar equipo',
+        link: '/votantes',
       },
       {
-        label: 'Transportes',
+        label: 'Reporte de servicio',
+        link: '/apps/email/read'
+      },
+      {
+        label: 'Reportes',
         link: '/apps/email/compose'
       },
     ]
