@@ -1,0 +1,70 @@
+<app-loader></app-loader>
+
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink=".">Carnetizacion</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ persona }}</li>
+    </ol>
+  </nav>
+  
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+  
+          <h6 class="card-title">Información Basica</h6>
+  
+          <form class="forms-sample" #carnetizacion="ngForm">
+            <div class="mb-3">
+              <label for="document" class="form-label">Documento</label>
+              <input type="number" class="form-control" name="document" id="document" autocomplete="off" placeholder="Documento" [(ngModel)]="response.document">
+            </div>
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombres</label>
+                <input type="text" class="form-control" name="name" id="name" autocomplete="off" placeholder="Nombres" disabled [(ngModel)]="response.name">
+            </div>
+            <div class="mb-3">
+              <label for="lastname" class="form-label">Apellidos</label>
+              <input type="text" class="form-control" name="lastname" id="lastname" autocomplete="off" placeholder="Apellidos" disabled [(ngModel)]="response.last_name">
+            </div>
+            <div class="mb-3">
+              <label for="program" class="form-label">Programa/Dependencia</label>
+              <input type="text" class="form-control" name="program" id="program" autocomplete="off" placeholder="Programa" disabled [(ngModel)]="response.program">
+            </div>
+            <div class="mb-3">
+              <label for="type" class="form-label">Vinculación</label>
+              <input type="text" class="form-control" name="type" id="type" placeholder="Tipo" disabled [(ngModel)]="response.type">
+            </div>
+            <div class="mb-3">
+              <label for="state" class="form-label">Estado</label>
+              <input type="text" class="form-control" name="state" id="state" placeholder="Estado" disabled [(ngModel)]="response.state">
+            </div>
+            <div class="mb-3">
+              <label for="rh" class="form-label">RH</label>
+              <select class="form-select" name="rh" id="rh" [(ngModel)]="response.rh">
+                <option selected disabled>Selecciona un tipo de sangre</option>
+                <option>O+</option>
+                <option>O-</option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+              </select>
+            </div>
+            
+            <button class="btn btn-primary me-2" (click)="getPerson(carnetizacion.value.document)">Consultar</button>
+            <button class="btn btn-success me-2" (click)="setImagePerson($event)">Guardar</button>
+            <button class="btn btn-danger" (click)="cleanForm()">Limpiar</button>
+          </form>
+  
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="personIn" class="col-md-6 grid-margin stretch-card">
+      <app-camera></app-camera>      
+    </div>
+  </div>

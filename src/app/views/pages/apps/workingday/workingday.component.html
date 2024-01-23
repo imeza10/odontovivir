@@ -1,0 +1,88 @@
+<app-loader></app-loader>
+
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink=".">Carnetizacion</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Crear Jornadas</li>
+    </ol>
+</nav>
+  
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <h6 class="card-title">Información Basica</h6>
+
+                <form class="forms-sample" #carnetizacion="ngForm">
+                <div class="mb-3">
+                    <label for="document" class="form-label">ID</label>
+                    <input type="number" class="form-control" name="id" id="id" autocomplete="off" placeholder="id" [(ngModel)]="workingday.id_working_day">
+                </div>
+                <div class="mb-3">
+                    <label for="working_day" class="form-label">Nombre Jornada</label>
+                    <input type="text" class="form-control" name="working_day" id="working_day" autocomplete="off" placeholder="Nombre Jornada" [(ngModel)]="workingday.working_day">
+                </div>
+
+                
+                <button class="btn btn-success me-2" (click)="setWorkinDay($event)">Guardar</button>
+                <button class="btn btn-danger" (click)="cleanForm()">Limpiar</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Jornadas Creadas</h6>
+          <p class="text-muted mb-3">Add class <code>.table-hover</code></p>
+  
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Fecha</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                </tr>
+                <tr>
+                  <th>4</th>
+                  <td>Larry</td>
+                  <td>Jellybean</td>
+                </tr>
+                <tr>
+                  <th>5</th>
+                  <td>Larry</td>
+                  <td>Kikat</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+      

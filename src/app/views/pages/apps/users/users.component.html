@@ -1,0 +1,75 @@
+<app-loader></app-loader>
+
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink=".">Usuarios</a></li>
+      <!-- <li class="breadcrumb-item active" aria-current="page">{{ persona }}</li> -->
+    </ol>
+  </nav>
+  
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+  
+          <h6 class="card-title">Información Basica</h6>
+  
+          <form class="forms-sample" #usuarios="ngForm">
+            <div class="mb-3">
+              <label for="document" class="form-label">Documento</label>
+              <input type="number" class="form-control" name="document" id="document" autocomplete="off" placeholder="Documento" [(ngModel)]="users.documento">
+            </div>
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombres</label>
+                <input type="text" class="form-control" name="name" id="name" autocomplete="off" placeholder="Nombres" [(ngModel)]="users.nombres">
+            </div>
+            <div class="mb-3">
+              <label for="lastname" class="form-label">Apellidos</label>
+              <input type="text" class="form-control" name="lastname" id="lastname" autocomplete="off" placeholder="Apellidos" [(ngModel)]="users.apellidos">
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Telefono</label>
+              <input type="text" class="form-control" name="phone" id="phone" autocomplete="off" placeholder="Telefono" [(ngModel)]="users.telefono">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo</label>
+              <input type="email" class="form-control" name="email" id="email" placeholder="Correo electronico" [(ngModel)]="users.email">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" [(ngModel)]="users.password">
+            </div>
+            <div class="mb-3">
+              <label for="confirm_password" class="form-label">Confirmar Contraseña</label>
+              <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Contraseña" [(ngModel)]="users.confirm_password">
+            </div>
+            <div class="mb-3">
+                <label for="state" class="form-label">Estado</label>
+                <select class="form-select" name="state" id="state" [(ngModel)]="selectedState">
+                  <option value="Activo"  selected>Activo</option>
+                  <option value="Inactivo" >Inactivo</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="rol" class="form-label">Rol</label>
+                <select class="form-select" name="rol" id="rol" [(ngModel)]="selectedRole">
+                  <!-- Itera sobre los roles disponibles y crea opciones -->
+                  <option *ngFor="let rol of roles" [value]="rol.id_rol">{{ rol.rol }}</option>
+                </select>
+            </div>
+              
+            
+            <button class="btn btn-primary me-2" (click)="getUser(usuarios.value.document)">Consultar</button>
+            <button class="btn btn-success me-2" (click)="setUser($event)">Guardar</button>
+            <button class="btn btn-danger" (click)="cleanForm()">Limpiar</button>
+          </form>
+  
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="userCreated" class="col-md-6 grid-margin stretch-card">
+      <app-detail-user style="width: 100%;"></app-detail-user>      
+    </div>
+  </div>

@@ -1,0 +1,34 @@
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Detalle del usuario</h6>
+          <p class="text-muted mb-3">Permisos por modulo</p>
+  
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Rol</th>
+                  <th>Modulo</th>
+                  <th>Habilitar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let modulo of modulos; let i = index">
+                  <td>{{ modulo.id_modulo }}</td>
+                  <td>{{ modulo.rol }}</td>
+                  <td>{{ modulo.modulo }}</td>
+                  <td><input type="checkbox" (change)="onCheckboxChange(modulo)" [(ngModel)]="modulo.habilitado"></td>
+                  <!-- Agrega otras celdas según tu estructura de datos -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>

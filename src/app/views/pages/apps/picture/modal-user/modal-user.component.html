@@ -1,0 +1,40 @@
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="table-responsive">
+                <table class="table table-hover" style="width: 100%;">
+                    <!-- Encabezados de la tabla -->
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Documento</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Programa/Dependencia</th>
+                            <th>Tipo</th>
+                            <th>Estado</th>
+                            <th>Ver</th>
+                        </tr>
+                    </thead>
+                    <!-- Cuerpo de la tabla -->
+                    <tbody>
+                        <tr *ngFor="let user of users; let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ user.document }}</td>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.last_name }}</td>
+                            <td>{{ user.program }}</td>
+                            <td>{{ user.type }}</td>
+                            <td>{{ user.state }}</td>
+                            <td>
+                                <button class="btn btn-link" (click)="verDetalle(user)">
+                                    <i class="fas fa-eye"></i> Ver
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

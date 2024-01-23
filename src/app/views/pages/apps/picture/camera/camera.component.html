@@ -1,0 +1,12 @@
+<div class="photo-capture-container">
+    <video #videoElement autoplay playsinline *ngIf="isCameraOn"></video>
+    <img *ngIf="photoSrc" [src]="photoSrc" alt="Captured Photo" class="captured-photo">
+    
+    <div class="buttons-container">
+      <button class="col-md-12 btn btn-success" (click)="startCamera()" *ngIf="!isCameraOn">Abrir Camara</button>
+      <button class="col-md-12 btn btn-info" (click)="takePhoto()" *ngIf="isCameraOn">Tomar Foto</button>
+      <button class="col-md-12 btn btn-danger" (click)="stopCamera()" *ngIf="isCameraOn">Cerrar Camara</button>
+      <button class="col-md-12 btn btn-warning" (click)="switchCamera($event)" *ngIf="isCameraOn">Cambiar Cámara</button>
+      <input type="file" (change)="handleFileInput($event)" accept="image/*" *ngIf="!isCameraOn">
+    </div>
+</div>
