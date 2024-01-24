@@ -10,8 +10,6 @@ export interface Users{
     rol: string;
     is_active: string;
     created_at: string;
-    success: string;
-    message: string;
 
 }
 

@@ -1,14 +1,11 @@
 export interface LoginData{
-    apellidos: string;
+    id_user: string;
     documento: string;
-    email: string;
-    encontrados: string;
-    id: string;
-    is_active: string;
-    message: string;
     nombres: string;
-    password: string;
-    rol: string;
-    success: string;
+    apellidos: string;
     telefono: string;
+    email: string;
+    is_active: string;
+    rol: string;
+    created_at: string;
 }

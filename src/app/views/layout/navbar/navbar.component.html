@@ -78,8 +78,9 @@
               <img class="wd-120 ht-80 rounded-circle" src="../../../../assets/images/user_default.jpg" alt="">
             </div>
             <div class="text-center">
-              <p class="tx-16 fw-bolder">Usuario en sesión @user</p>
-              <p class="tx-12 text-muted">user-sesion@gmail.com</p>
+              <p class="tx-16 fw-bolder">{{ this.userInfo.nombres + ' ' + this.userInfo.apellidos }}</p>
+              <p class="tx-12 text-muted">{{ this.userInfo.email }}</p>
+              <p class="tx-12 text-muted">{{ this.userInfo.rol }}</p>
             </div>
           </div>
           <ul class="list-unstyled p-1">

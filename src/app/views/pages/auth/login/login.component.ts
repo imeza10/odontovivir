@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { LoginData } from '../model/auth';
 import { ToastrService } from 'ngx-toastr';
+import { RequestResultPHP } from '../../../../models/request-result';
 
 @Component({
   selector: 'app-login',
@@ -36,10 +37,10 @@ export class LoginComponent implements OnInit {
     let pass = this.password.nativeElement.value;
 
     this.loginService.setLogin(documento, pass)
-    .subscribe((rest:LoginData) => {
+    .subscribe((rest:RequestResultPHP<LoginData>) => {
 
       if(rest.success == "1"){
-        this.toastr.success("Bienvenido " + rest.nombres + " " + rest.apellidos);
+        this.toastr.success(rest.message);
         localStorage.setItem('isLoggedin', 'true');
         if (localStorage.getItem('isLoggedin')) {
           this.router.navigate([this.returnUrl]);

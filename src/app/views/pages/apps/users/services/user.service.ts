@@ -39,7 +39,7 @@ export class UserService {
     const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
     return this.http
-      .post<Users>(`${this.configService?.config?.urlApi}getUsuario.php`,
+      .post<RequestResultPHP<Users>>(`${this.configService?.config?.urlApi}getUsuario.php`,
         body.toString(), // Envía los datos en el formato application/x-www-form-urlencoded
         { headers: headers }
       )
@@ -69,7 +69,7 @@ export class UserService {
     const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
     return this.http
-      .post<Users>(`${this.configService?.config?.urlApi}setUsuario.php`,
+      .post<RequestResultPHP<Users>>(`${this.configService?.config?.urlApi}setUsuario.php`,
         body.toString(), // Envía los datos en el formato application/x-www-form-urlencoded
         { headers: headers }
       )
@@ -122,7 +122,7 @@ export class UserService {
     const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
     return this.http
-      .post<RequestResultPHP<Permisos>>(`${this.configService?.config?.urlApi}getPermisos2.php`,
+      .post<RequestResultPHP<Permisos>>(`${this.configService?.config?.urlApi}getPermisos.php`,
           body.toString(), // Envía los datos en el formato application/x-www-form-urlencoded
           { headers: headers }
         )      

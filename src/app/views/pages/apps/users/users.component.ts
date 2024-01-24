@@ -28,9 +28,7 @@ export class UsersComponent implements OnInit {
     confirm_password: '',
     rol: '',
     is_active: '',
-    created_at: '',
-    success: '',
-    message: ''
+    created_at: ''
   };
 
   constructor(
@@ -57,9 +55,7 @@ export class UsersComponent implements OnInit {
       confirm_password: '',
       rol: '',
       is_active: '',
-      created_at: '',
-      success: '',
-      message: ''
+      created_at: ''
     };
   }
 
@@ -69,30 +65,28 @@ export class UsersComponent implements OnInit {
       this.toastr.warning("El numero de documento es obligatorio.");
     else
       this.userService.getUserByDocument(document)
-      .subscribe((data:Users) => {
+      .subscribe((data:RequestResultPHP<Users>) => {
 
         if(data.success == "1"){
           this.toastr.success(data.message);
 
           this.users =  {
-            id: data.id,
-            documento: data.documento,
-            nombres: data.nombres,
-            apellidos: data.apellidos,
-            telefono: data.telefono,
-            email: data.email,
-            password: data.password,
-            confirm_password: data.password,
-            rol: data.rol,
-            is_active: data.is_active,
-            created_at: data.created_at,
-            success: data.success,
-            message: data.message
+            id: data.result[0].id,
+            documento: data.result[0].documento,
+            nombres: data.result[0].nombres,
+            apellidos: data.result[0].apellidos,
+            telefono: data.result[0].telefono,
+            email: data.result[0].email,
+            password: data.result[0].password,
+            confirm_password: data.result[0].password,
+            rol: data.result[0].rol,
+            is_active: data.result[0].is_active,
+            created_at: data.result[0].created_at
           };
           
           // Buscar el objeto de rol correspondiente en this.roles
-          this.selectedRole =  data.rol;
-          this.selectedState = data.is_active == "1" ? "Activo" : "Inactivo";
+          this.selectedRole =  data.result[0].rol;
+          this.selectedState = data.result[0].is_active == "1" ? "Activo" : "Inactivo";
           //Seteamos el documento del usuario buscado
           this.userService.setUserSelected(this.users.documento);
           this.userCreated = true;
@@ -134,7 +128,7 @@ export class UsersComponent implements OnInit {
        this.users.rol = this.selectedRole;
        this.users.is_active = this.selectedState;
       this.userService.setUser(this.users).subscribe(
-        (response: Users) => {
+        (response: RequestResultPHP<Users>) => {
           if(response.success == "1" || response.success == "2")
             this.toastr.success(response.message);
           else
